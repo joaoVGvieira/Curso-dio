@@ -68,57 +68,53 @@ def menu_principal():
     print("6. Sair")
 
 
-def main():
-    clientes = []
-    contas = []
+clientes = []
+contas = []
 
-    while True:
-        menu_principal()
-        opcao = input("Escolha uma opção: ")
+while True:
+    menu_principal()
+    opcao = input("Escolha uma opção: ")
 
-        if opcao == "1":
-            # Saque
-            cpf = input("Digite o CPF: ")
-            for conta in contas:
-                if cpf == conta.cpf:
-                    valor_saque = float(input("Digite o valor do saque: "))
-                    conta.saque(valor_saque)
-                    break
-            else:
-                print("Cliente não encontrado.")
-        elif opcao == "2":
-            # Depósito
-            cpf = input("Digite o CPF: ")
-            for conta in contas:
-                if cpf == conta.cpf:
-                    valor_deposito = float(input("Digite o valor do depósito: "))
-                    conta.deposito(valor_deposito)
-                    break
-            else:
-                print("Cliente não encontrado.")
-        elif opcao == "3":
-            # Extrato
-            cpf = input("Digite o CPF: ")
-            for conta in contas:
-                if cpf == conta.cpf:
-                    conta.extrato_exibir()
-                    break
-            else:
-                print("Cliente não encontrado.")
-        elif opcao == "4":
-            # Cadastrar Cliente
-            cadastrar_cliente(clientes)
-        elif opcao == "5":
-            # Cadastrar Conta
-            cadastrar_conta(clientes, contas)
-        elif opcao == "6":
-            # Sair
-            print("Saindo...")
-            break
+    if opcao == "1":
+        # Saque
+        cpf = input("Digite o CPF: ")
+        for conta in contas:
+            if cpf == conta.cpf:
+                valor_saque = float(input("Digite o valor do saque: "))
+                conta.saque(valor_saque)
+                break
         else:
-            print("Opção inválida. Tente novamente.")
+            print("Cliente não encontrado.")
+    elif opcao == "2":
+        # Depósito
+        cpf = input("Digite o CPF: ")
+        for conta in contas:
+            if cpf == conta.cpf:
+                valor_deposito = float(input("Digite o valor do depósito: "))
+                conta.deposito(valor_deposito)
+                break
+        else:
+            print("Cliente não encontrado.")
+    elif opcao == "3":
+        # Extrato
+        cpf = input("Digite o CPF: ")
+        for conta in contas:
+            if cpf == conta.cpf:
+                conta.extrato_exibir()
+                break
+        else:
+            print("Cliente não encontrado.")
+    elif opcao == "4":
+        # Cadastrar Cliente
+        cadastrar_cliente(clientes)
+    elif opcao == "5":
+        # Cadastrar Conta
+        cadastrar_conta(clientes, contas)
+    elif opcao == "6":
+        # Sair
+        print("Saindo...")
+        break
+    else:
+        print("Opção inválida. Tente novamente.")
 
 
-# Execução do programa
-if __name__ == "__main__":
-    main()
